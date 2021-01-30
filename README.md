@@ -22,3 +22,7 @@ Outline functionality: <br>
 <b>Analysis</b>
    * plot scores
    * tests
+
+Resources
+* [Five Steps to Successfully Implement and Evaluate
+Propensity Score Matching in Clinical Research Studies](https://www.medschool.umaryland.edu/media/SOM/Departments/Anesthesiology/Resources/Faculty-Development-/Five_Steps_to_Successfully_Implement_and_Evaluate.96979.pdf)
