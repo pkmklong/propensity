@@ -2,3 +2,7 @@ name = "Propensity"
 uuid = "52ac9521-1c61-4034-8294-8f24a775841c"
 authors = ["Patrick Long <patrick.long@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+GLM = "38e38edf-8417-5370-95a0-9cbb8c7f171a"
+StatsModels = "3eaba693-59b7-5ba5-a881-562e759f1c8d"
