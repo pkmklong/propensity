@@ -17,6 +17,7 @@ Outline functionality: <br>
       * (artifact -> matched/sampled training instances table)
       
 <b>Weighting</b>
+* TBD
 
 <b>Analysis</b>
    * plot scores
