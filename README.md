@@ -15,6 +15,7 @@ Outline functionality: <br>
    * find matches by propensity score (if exists)
       * methods: greedy/random, nearest (knn), threshold (based on distance)
       * (artifact -> matched/sampled training instances table)
+      
 <b>Weighting</b>
 
 <b>Analysis</b>
