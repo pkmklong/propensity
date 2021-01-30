@@ -1,5 +1,5 @@
 # propensity.jl
-WIP: Propensity score utilities for Julia
+WIP: A propensity score utility for Julia
 
 Outline functionality: <br>
 
