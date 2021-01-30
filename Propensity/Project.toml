@@ -1,0 +1,4 @@
+name = "Propensity"
+uuid = "52ac9521-1c61-4034-8294-8f24a775841c"
+authors = ["Patrick Long <patrick.long@gmail.com>"]
+version = "0.1.0"
