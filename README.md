@@ -2,7 +2,7 @@
 WIP: A propensity score utility for Julia
 
 
-# Demo
+### Demo (WIP)
 
 <i>Installation</i>
 
@@ -10,7 +10,7 @@ WIP: A propensity score utility for Julia
 $ julia -e  'using Pkg; pkg"add https://github.com/XXX";'
 ```
 
-# Load demo data 
+<i>Load Demo Data</i>
 
 * <b>Subjects</b>: 400 subjects (male) from retrospective cohort study hospital with suspected MI.
 * <b>Outcome</b>:: 30-day mortality (death=1)
@@ -34,15 +34,16 @@ fitted_logit = fit_logit(fm, df)
 df = assign_propensity_scores(df,fitted_logit)
 ```
 
-# Inspect Propensity Scores by Intervention Status
+<i>Inspect Propensity Scores by Intervention Status</i>
 ```julia
 df[!, Symbol("Treatment")] .= ifelse.(
   df.trt .== 1, "Treatment", "No Treatment")
 
 plot_prop_by_factor(df, "Treatment")
 ```
+<img src="https://github.com/pkmklong/propensity.jl/blob/master/images/_.svg" height="250"  class="center">
 
-# Inspect Propensity Scores by Covariates
+<i>Inspect Propensity Scores by Covariates</i>
 ```julia
 df = quartile_col(df, "age", "age_quartiles");
 
@@ -53,7 +54,8 @@ plot_prop_by_covariate(
         "age_quartiles"
     )
 ```
-    
+<img src="https://github.com/pkmklong/propensity.jl/blob/master/images/_.svg" height="250"  class="center">
+
     
     
 
