@@ -12,11 +12,12 @@ Outline functionality: <br>
   * predict score with trained model (artifact -> scores per instance table)
   
 <b>Stratification/matching</b>
-   * find matches by propensity score (if exists)
-      * methods: greedy/random, nearest (knn), threshold (based on distance)
-      * (artifact -> matched/sampled training instances table)
+* Inspect covariates by propensity scores (quartiles)
+* find matches by propensity score (if exists)
+    * methods: greedy/random, nearest (knn), threshold (based on distance)
+    * (artifact -> matched/sampled training instances table)
       
-<b>Weighting</b>
+<b>Propensity Score Weighting</b>
 * TBD
 
 <b>Analysis</b>
