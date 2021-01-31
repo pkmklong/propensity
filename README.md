@@ -41,7 +41,7 @@ df[!, Symbol("Treatment")] .= ifelse.(
 
 plot_prop_by_factor(df, "Treatment")
 ```
-<img src="https://github.com/pkmklong/propensity.jl/blob/master/images/propensity_score_by_intervention.png" height="250"  class="center">
+<img src="https://github.com/pkmklong/propensity.jl/blob/main/images/propensity_score_by_intervention.png" height="250"  class="center">
 
 <i>Inspect Propensity Scores by Covariates</i>
 ```julia
