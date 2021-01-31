@@ -41,7 +41,7 @@ df[!, Symbol("Treatment")] .= ifelse.(
 
 plot_prop_by_factor(df, "Treatment")
 ```
-<img src="https://github.com/pkmklong/propensity.jl/blob/master/images/_.svg" height="250"  class="center">
+<img src="https://github.com/pkmklong/propensity.jl/blob/master/images/propensity_score_by_intervention" height="250"  class="center">
 
 <i>Inspect Propensity Scores by Covariates</i>
 ```julia
@@ -54,7 +54,7 @@ plot_prop_by_covariate(
         "age_quartiles"
     )
 ```
-<img src="https://github.com/pkmklong/propensity.jl/blob/master/images/_.svg" height="250"  class="center">
+<img src="https://github.com/pkmklong/propensity.jl/blob/master/images/propensity_score_by_covariate" height="250"  class="center">
 
     
     
