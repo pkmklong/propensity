@@ -25,8 +25,11 @@ df = CSV.File("../../data/propensity.csv") |> DataFrame;
  
 # subset to relevant covariates
 df = select(df, Not([:death, :male]))
+```
 
-# fit logit function for propensity of intervention
+<i>Fit logit function for propensity of intervention</i>
+```julia
+# Fit function
 fm = assign_formula("trt", df)
 fitted_logit = fit_logit(fm, df)
 
@@ -48,7 +51,7 @@ plot_prop_by_factor(df, "Treatment")
 df = quartile_col(df, "age", "age_quartiles");
 
 plot_prop_by_covariate(
-        df2,
+        df,
         "Treatment",
         "age",
         "age_quartiles"
