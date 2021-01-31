@@ -1,7 +1,64 @@
 # propensity.jl
 WIP: A propensity score utility for Julia
 
-Outline functionality: <br>
+
+# Demo
+
+<i>Installation</i>
+
+```
+$ julia -e  'using Pkg; pkg"add https://github.com/XXX";'
+```
+
+# Load demo data 
+
+* <b>Subjects</b>: 400 subjects (male) from retrospective cohort study hospital with suspected MI.
+* <b>Outcome</b>:: 30-day mortality (death=1)
+* <b>Intervention</b>:: Rapid administration of a new clot-busting drug (trt=1) versus a standard therapy (trt=0)
+* <b>Source</b>:: http://web.hku.hk/~bcowling/data/propensity.csv
+
+```julia
+using Propensity
+using CSV
+
+df = CSV.File("../../data/propensity.csv") |> DataFrame;
+ 
+# subset to relevant covariates
+df = select(df, Not([:death, :male]))
+
+# fit logit function for propensity of intervention
+fm = assign_formula("trt", df)
+fitted_logit = fit_logit(fm, df)
+
+# Assign propensity scores
+df = assign_propensity_scores(df,fitted_logit)
+```
+
+# Inspect Propensity Scores by Intervention Status
+```julia
+df[!, Symbol("Treatment")] .= ifelse.(
+  df.trt .== 1, "Treatment", "No Treatment")
+
+plot_prop_by_factor(df, "Treatment")
+```
+
+# Inspect Propensity Scores by Covariates
+```julia
+df = quartile_col(df, "age", "age_quartiles");
+
+plot_prop_by_covariate(
+        df2,
+        "Treatment",
+        "age",
+        "age_quartiles"
+    )
+```
+    
+    
+    
+
+
+<b>WIP Outline</b>: <br>
 
 <b>Interface</b>
 * select covariates (artifact -> list of covariates)
