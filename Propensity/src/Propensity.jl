@@ -22,11 +22,14 @@ function assign_formula(y, df)
 end
   
 
-function fit_logit(fm, df)
+function fit_logit(y, df)
+    
+    fm = assign_formula(y, df)
     
     logit = glm(fm, df, Binomial(), LogitLink())
     return logit
 end
+
 
     
 function assign_propensity_scores(df, fitted_logit)
