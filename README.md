@@ -47,7 +47,7 @@ plot_prop_by_factor(df, "Treatment")
 
 <i>Inspect Propensity Scores by Covariates</i>
 ```julia
-df = quartile_col(df, "age", "age_quartiles");
+df = assign_quartile(df, "age", "age_quartiles")
 
 plot_prop_by_covariate(
         df,
