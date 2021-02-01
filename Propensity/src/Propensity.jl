@@ -41,7 +41,7 @@ end
 
 # Matching functionality (refactor)
 
-function assign_quartile(x, Q1, Q2, Q3, Q4)
+function bin_quartile(x, Q1, Q2, Q3, Q4)
     if x .<= Q1
         return "Q1"
     elseif x .<= Q2
@@ -54,13 +54,13 @@ function assign_quartile(x, Q1, Q2, Q3, Q4)
 end
 
 
-function quartile_col(df, col, new_col)
-    
-    Q1, Q2, Q3, Q4 = quantile(df[!, Symbol(col)], [0.25 0.5 0.75 1.0])
+function assign_quartile(df, col, new_col)
     
     df = sort(df, [order(Symbol(col), rev=false)])
     
-    df[!, Symbol(new_col)] = assign_quartile.(df[:, Symbol(col)], Q1, Q2, Q3, Q4)
+    Q1, Q2, Q3, Q4 = quantile(df[!, Symbol(col)], [0.25 0.5 0.75 1.0])
+    
+    df[!, Symbol(new_col)] = bin_quartile.(df[:, Symbol(col)], Q1, Q2, Q3, Q4)
     
     return df
 end
