@@ -22,6 +22,13 @@ function assign_formula(y, df)
 end
   
 
+function sample_majority(df)
+end
+
+function train_n_models(n)
+end
+
+
 function fit_logit(y, df)
     
     fm = assign_formula(y, df)
@@ -32,7 +39,7 @@ end
 
 
     
-function assign_propensity_scores(df, fitted_logit)
+function assign_propensity_scores(df, logit)
     
     df[!,Symbol("Propensity_Scores")] = predict(logit, df)
     return df
