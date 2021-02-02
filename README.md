@@ -70,6 +70,8 @@ plot_prop_by_covariate(
 <b>Core</b>
 * calculate propensity score 
   * fit scores with logit (artifact -> trained model object)
+      * fit with sampling from majority class
+      * fit n models (when above > 1)
   * predict score with trained model (artifact -> scores per instance table)
   
 <b>Stratification/matching</b>
