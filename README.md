@@ -30,10 +30,10 @@ df = select(df, Not([:death, :male]))
 <i>Fit logit function for propensity of intervention</i>
 ```julia
 # Fit function
-fitted_logit = fit_logit("trt", df)
+logit = fit_logit("trt", df)
 
 # Assign propensity scores
-df = assign_propensity_scores(df,fitted_logit)
+df = assign_propensity_scores(df,logit)
 ```
 
 <i>Inspect Propensity Scores by Intervention Status</i>
