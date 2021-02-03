@@ -56,7 +56,15 @@ function make_train_sets(df_0, df_1, n_sets)
 end
 
 
-function train_n_models(n)
+# train logit functions for each n train set
+function train_n_models(y, df_list)
+    
+    models = [] 
+    for df in df_list
+        logit = fit_logit(y, df)
+        models = append!(models, [logit])     
+    end
+    return models
 end
 
 
