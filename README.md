@@ -30,11 +30,10 @@ df = select(df, Not([:death, :male]))
 <i>Fit logit function for propensity of intervention</i>
 ```julia
 # Fit function
-fm = assign_formula("trt", df)
-fitted_logit = fit_logit(fm, df)
+logit = fit_logit("trt", df)
 
 # Assign propensity scores
-df = assign_propensity_scores(df,fitted_logit)
+df = assign_propensity_scores(df,logit)
 ```
 
 <i>Inspect Propensity Scores by Intervention Status</i>
@@ -48,7 +47,7 @@ plot_prop_by_factor(df, "Treatment")
 
 <i>Inspect Propensity Scores by Covariates</i>
 ```julia
-df = quartile_col(df, "age", "age_quartiles");
+df = assign_quartile(df, "age", "age_quartiles")
 
 plot_prop_by_covariate(
         df,
@@ -71,6 +70,8 @@ plot_prop_by_covariate(
 <b>Core</b>
 * calculate propensity score 
   * fit scores with logit (artifact -> trained model object)
+      * fit with sampling from majority class
+      * fit n models (when above > 1)
   * predict score with trained model (artifact -> scores per instance table)
   
 <b>Stratification/matching</b>
